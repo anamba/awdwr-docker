@@ -1,0 +1,14 @@
+#!/bin/bash
+
+db_name=$1
+if [[ "$db_name" = "" ]]; then db_name=$MYSQL_DB; fi
+if [[ "$db_name" = "" ]]; then
+  echo "Usage: drop-db <databasename> <filename>"
+  exit 1
+fi
+
+echo "About to DROP DATABASE $db_name. There is NO UNDO."
+echo "Ctrl-C now if that's not what you had in mind..."
+sleep 5
+
+docker-compose exec db mysql -u root -e "drop database \`$db_name\`"
