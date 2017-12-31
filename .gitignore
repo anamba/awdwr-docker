@@ -1,2 +1,10 @@
-docker-compose[.-]*.yml
+# docker local overrides
+/docker-compose[.-]*.yml
 
+# work dir
+/work/*
+
+# homedir stuff
+/.bash_history
+/.bundle/
+/.gem/

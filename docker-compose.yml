@@ -5,9 +5,11 @@ services:
     image: anamba/awdwr    # use this to download and run the already-compiled image from Docker Hub
     # build: .             # use this one if you want to play with Docker on your own (edit Dockerfile, `docker-compose build`)
     ports:
-      - '3000'
+      - '3000:3000'
     # links:
     #   - db
+    volumes:
+      - ./:/home/app:cached
     environment:
       PASSENGER_APP_ENV: development
       
